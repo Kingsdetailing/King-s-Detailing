@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | King's Detailing</title>
+  <meta name="description" content="Book mobile car detailing with King's Detailing in Spring Lake, NC. Call (253) 281-0909." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">King's <span>Detailing</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta active">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Book a Detail</h1>
+        <p>Call or text to schedule. We’ll confirm your rate and come to you.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Get in touch</h2>
+            <p>The fastest way to book is a call or text. Tell us your vehicle size and preferred day — we’ll take care of the rest.</p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <strong>Phone / Text</strong>
+                  <a href="tel:+12532810909">(253) 281-0909</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <strong>Service Area</strong>
+                  <span>Spring Lake, NC and surrounding areas<br />(Fully mobile — we come to you)</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">💵</div>
+                <div>
+                  <strong>Pricing</strong>
+                  <span>Compact $100 · Medium $125 · Larger $150<br />Engine bay +$50</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form id="quote-form" onsubmit="handleSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Your name" />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="vehicle">Vehicle</label>
+                <input type="text" id="vehicle" name="vehicle" placeholder="e.g. 2019 Honda Civic / 2021 F-150" />
+              </div>
+              <div class="form-group">
+                <label for="size">Vehicle size</label>
+                <select id="size" name="size">
+                  <option value="">Select size...</option>
+                  <option value="compact">Compact — $100</option>
+                  <option value="medium">Medium — $125</option>
+                  <option value="larger">Larger — $150</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message / preferred day</label>
+                <textarea id="message" name="message" placeholder="Preferred day/time, location, or any questions..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                Send Request
+              </button>
+              <p id="form-status" style="margin-top: 1rem; text-align: center; font-size: 0.95rem; display: none;"></p>
+              <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-muted);">
+                Or just call/text <a href="tel:+12532810909" style="color: var(--pink);">(253) 281-0909</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">King's <span>Detailing</span></div>
+          <p>Mobile car detailing serving Spring Lake, NC. We come to you with everything needed for a full interior & exterior detail.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="tel:+12532810909">(253) 281-0909</a>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Spring Lake, NC</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Mobile service — we come to you</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 King's Detailing. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.style.display = 'block';
+      status.style.color = 'var(--pink)';
+      status.textContent = 'Thanks! This is a demo form — for now just call or text (253) 281-0909 to book.';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

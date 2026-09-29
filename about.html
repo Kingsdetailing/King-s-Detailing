@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | King's Detailing</title>
+  <meta name="description" content="King's Detailing is a mobile car detailing service based in Spring Lake, NC. We come to you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">King's <span>Detailing</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html" class="nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>About King's Detailing</h1>
+        <p>Mobile car care that comes to your driveway in Spring Lake, NC.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Detailing that fits your schedule</h2>
+            <p>
+              King's Detailing is a fully mobile service. We load up our equipment and come to your location — home, work, or anywhere convenient around Spring Lake.
+            </p>
+            <p>
+              Every job includes a full interior clean, exterior wash with a wax finish, and wheels. No complicated packages. Just clear flat rates based on the size of your vehicle.
+            </p>
+            <p>
+              Want the engine bay done too? Add it for $50. Simple as that.
+            </p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Mobile</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Flat</span>
+                <span class="stat-label">Rate pricing</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">NC</span>
+                <span class="stat-label">Spring Lake</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <span style="position: relative; z-index: 1;">👑</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--black-soft); border-top: 1px solid var(--gray-mid);">
+      <div class="container">
+        <div class="section-header">
+          <h2>How it works</h2>
+          <p>Three easy steps from call to clean car.</p>
+        </div>
+        <div class="highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon">1</div>
+            <h3>Call or text</h3>
+            <p>Reach out at (253) 281-0909 with your vehicle type and preferred day. We’ll confirm the rate.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">2</div>
+            <h3>We come to you</h3>
+            <p>On the scheduled day we arrive with everything needed and detail your car on-site.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">3</div>
+            <h3>Enjoy the results</h3>
+            <p>Interior clean, exterior waxed, wheels done. You’re good to go.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container" style="text-align: center;">
+        <h2 style="margin-bottom: 1rem;">Ready to book?</h2>
+        <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 1.75rem;">Call or text anytime. Serving Spring Lake, NC and nearby areas.</p>
+        <a href="tel:+12532810909" class="btn btn-primary">Call (253) 281-0909</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">King's <span>Detailing</span></div>
+          <p>Mobile car detailing serving Spring Lake, NC. We come to you with everything needed for a full interior & exterior detail.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="tel:+12532810909">(253) 281-0909</a>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Spring Lake, NC</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Mobile service — we come to you</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 King's Detailing. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+</body>
+</html>
