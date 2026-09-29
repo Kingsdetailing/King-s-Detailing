@@ -9,6 +9,25 @@ collections:
   - name: "content"
     label: "Website Content"
     files:
+      - label: "Home Page Text"
+        name: "home"
+        file: "content/site.json"
+        fields:
+          - { label: "Hero line 1", name: "hero_line1", widget: "string" }
+          - { label: "Hero line 2 (pink text)", name: "hero_line2", widget: "string" }
+          - { label: "Hero paragraph", name: "hero_text", widget: "text" }
+          - { label: "Why section heading", name: "why_heading", widget: "string" }
+          - { label: "Why section paragraph", name: "why_text", widget: "text" }
+          - { label: "Why card 1 title", name: "why1_title", widget: "string" }
+          - { label: "Why card 1 text", name: "why1_text", widget: "text" }
+          - { label: "Why card 2 title", name: "why2_title", widget: "string" }
+          - { label: "Why card 2 text", name: "why2_text", widget: "text" }
+          - { label: "Why card 3 title", name: "why3_title", widget: "string" }
+          - { label: "Why card 3 text", name: "why3_text", widget: "text" }
+          - { label: "Pricing heading", name: "pricing_heading", widget: "string" }
+          - { label: "Pricing paragraph", name: "pricing_text", widget: "text" }
+          - { label: "Bottom heading", name: "cta_heading", widget: "string" }
+          - { label: "Bottom paragraph", name: "cta_text", widget: "text" }
       - label: "Gallery Photos"
         name: "gallery"
         file: "content/gallery.json"
@@ -16,10 +35,11 @@ collections:
           - label: "Photos"
             name: "photos"
             widget: "list"
+            required: false
             summary: "{{title}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Photo", name: "image", widget: "image", required: false }
               - { label: "Caption", name: "caption", widget: "string", required: false }
       - label: "Contact Info"
         name: "contact"
