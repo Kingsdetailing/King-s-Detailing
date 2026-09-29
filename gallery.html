@@ -31,48 +31,17 @@
     <div class="page-hero">
       <div class="container">
         <h1>Our Work</h1>
-        <p>Results from real jobs. Replace these placeholders with your own before & after photos.</p>
+        <p>Before and after results from King's Detailing in Spring Lake, NC.</p>
       </div>
     </div>
 
     <section>
       <div class="container">
-        <div class="gallery-grid">
-          <div class="gallery-item">
-  <div class="placeholder">
-    <strong>Exterior + Wax</strong>
-    Before → After<br />Full exterior with wax finish
-  </div>
-</div>
-          </div>
+        <div class="gallery-grid" id="gallery-grid">
           <div class="gallery-item">
             <div class="placeholder">
-              <strong>Interior Detail</strong>
-              Before → After<br />Vacuum, wipe-down & clean
-            </div>
-          </div>
-          <div class="gallery-item">
-            <div class="placeholder">
-              <strong>Wheels & Tires</strong>
-              Before → After<br />Cleaned and dressed
-            </div>
-          </div>
-          <div class="gallery-item">
-            <div class="placeholder">
-              <strong>Full Package</strong>
-              Before → After<br />Interior + exterior + wheels
-            </div>
-          </div>
-          <div class="gallery-item">
-            <div class="placeholder">
-              <strong>Engine Bay</strong>
-              Before → After<br />+$50 add-on
-            </div>
-          </div>
-          <div class="gallery-item">
-            <div class="placeholder">
-              <strong>Your Car Next</strong>
-              Book a detail<br />and get it looking sharp
+              <strong>Photos coming soon</strong>
+              After your first jobs, upload pictures from the admin panel.
             </div>
           </div>
         </div>
@@ -122,6 +91,27 @@
         document.querySelector('.nav-links').classList.remove('open');
       });
     });
+
+    fetch('content/gallery.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data.photos || !data.photos.length) return;
+        var grid = document.getElementById('gallery-grid');
+        grid.innerHTML = '';
+        data.photos.forEach(function (item) {
+          var div = document.createElement('div');
+          div.className = 'gallery-item';
+          var src = item.image || '';
+          if (src && src.charAt(0) !== '/' && src.indexOf('http') !== 0) {
+            src = src;
+          }
+          div.innerHTML =
+            '<img src="' + src + '" alt="' + (item.title || 'Detailing photo') +
+            '" style="width:100%;height:100%;object-fit:cover;">';
+          grid.appendChild(div);
+        });
+      })
+      .catch(function () {});
   </script>
 </body>
 </html>
