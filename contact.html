@@ -68,7 +68,11 @@
           </div>
 
           <div class="contact-form">
-            <form id="quote-form" onsubmit="handleSubmit(event)">
+            <form name="booking" method="POST" data-netlify="true" action="/thank-you.html" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="booking" />
+              <p style="display:none;">
+                <label>Don’t fill this out: <input name="bot-field" /></label>
+              </p>
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -99,7 +103,6 @@
               <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                 Send Request
               </button>
-              <p id="form-status" style="margin-top: 1rem; text-align: center; font-size: 0.95rem; display: none;"></p>
               <p style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--text-muted);">
                 Or just call/text <a href="tel:+12532810909" style="color: var(--pink);">(253) 281-0909</a>
               </p>
@@ -145,14 +148,7 @@
       });
     });
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      const status = document.getElementById('form-status');
-      status.style.display = 'block';
-      status.style.color = 'var(--pink)';
-      status.textContent = 'Thanks! This is a demo form — for now just call or text (253) 281-0909 to book.';
-      e.target.reset();
-    }
+    
   </script>
 </body>
 </html>
