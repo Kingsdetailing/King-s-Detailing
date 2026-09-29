@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | King's Detailing</title>
+  <meta name="description" content="Before and after results from King's Detailing mobile car care in Spring Lake, NC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">King's <span>Detailing</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Our Work</h1>
+        <p>Before and after results from King's Detailing in Spring Lake, NC.</p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="gallery-grid" id="gallery-grid">
+          <div class="gallery-item">
+            <div class="placeholder">
+              <strong>Photos coming soon</strong>
+              After your first jobs, upload pictures from the admin panel.
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center; background: var(--black-soft); border: 1px solid var(--gray-mid); border-radius: var(--radius); padding: 2rem;">
+          <h3 style="margin-bottom: 0.75rem;">Want results like these?</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1.25rem; max-width: 420px; margin-left: auto; margin-right: auto;">
+            Call or text to schedule. We come to you in Spring Lake and the surrounding area.
+          </p>
+          <a href="tel:+12532810909" class="btn btn-primary">Call (253) 281-0909</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">King's <span>Detailing</span></div>
+          <p>Mobile car detailing serving Spring Lake, NC. We come to you with everything needed for a full interior & exterior detail.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="tel:+12532810909">(253) 281-0909</a>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Spring Lake, NC</span>
+          <span style="color: var(--text-muted); font-size: 0.9rem;">Mobile service — we come to you</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 King's Detailing. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+
+    fetch('content/gallery.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (!data.photos || !data.photos.length) return;
+        var grid = document.getElementById('gallery-grid');
+        grid.innerHTML = '';
+        data.photos.forEach(function (item) {
+          var div = document.createElement('div');
+          div.className = 'gallery-item';
+          var src = item.image || '';
+          if (src && src.charAt(0) !== '/' && src.indexOf('http') !== 0) {
+            src = src;
+          }
+          div.innerHTML =
+            '<img src="' + src + '" alt="' + (item.title || 'Detailing photo') +
+            '" style="width:100%;height:100%;object-fit:cover;">';
+          grid.appendChild(div);
+        });
+      })
+      .catch(function () {});
+  </script>
+</body>
+</html>
