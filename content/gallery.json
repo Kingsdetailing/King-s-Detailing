@@ -1,3 +1,8 @@
 {
-  "photos": []
+  "photos": [
+    {
+      "image": "/photos/screenshot-2024-10-19-205331.png",
+      "title": "Test"
+    }
+  ]
 }
